@@ -1,0 +1,15 @@
+C:\Users\GamingPC\source\repos\blokowe\blokowe\bin\Debug\net5.0\blokowe.exe
+C:\Users\GamingPC\source\repos\blokowe\blokowe\bin\Debug\net5.0\blokowe.deps.json
+C:\Users\GamingPC\source\repos\blokowe\blokowe\bin\Debug\net5.0\blokowe.runtimeconfig.json
+C:\Users\GamingPC\source\repos\blokowe\blokowe\bin\Debug\net5.0\blokowe.runtimeconfig.dev.json
+C:\Users\GamingPC\source\repos\blokowe\blokowe\bin\Debug\net5.0\blokowe.dll
+C:\Users\GamingPC\source\repos\blokowe\blokowe\bin\Debug\net5.0\ref\blokowe.dll
+C:\Users\GamingPC\source\repos\blokowe\blokowe\bin\Debug\net5.0\blokowe.pdb
+C:\Users\GamingPC\source\repos\blokowe\blokowe\obj\Debug\net5.0\blokowe.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GamingPC\source\repos\blokowe\blokowe\obj\Debug\net5.0\blokowe.AssemblyInfoInputs.cache
+C:\Users\GamingPC\source\repos\blokowe\blokowe\obj\Debug\net5.0\blokowe.AssemblyInfo.cs
+C:\Users\GamingPC\source\repos\blokowe\blokowe\obj\Debug\net5.0\blokowe.csproj.CoreCompileInputs.cache
+C:\Users\GamingPC\source\repos\blokowe\blokowe\obj\Debug\net5.0\blokowe.dll
+C:\Users\GamingPC\source\repos\blokowe\blokowe\obj\Debug\net5.0\ref\blokowe.dll
+C:\Users\GamingPC\source\repos\blokowe\blokowe\obj\Debug\net5.0\blokowe.pdb
+C:\Users\GamingPC\source\repos\blokowe\blokowe\obj\Debug\net5.0\blokowe.genruntimeconfig.cache
