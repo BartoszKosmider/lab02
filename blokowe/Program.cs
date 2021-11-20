@@ -9,23 +9,33 @@ namespace blokowe
 		{
 			while (true)
 			{
-				Console.WriteLine("1 - ecb, 2 - cbc, 3 - cfb");
+				Console.WriteLine("1 - ecb, 2 - cbc, 3 - cfb, 4 - ecb moje, 5 - cbc moje");
 				var inputValue = Console.ReadLine();
 				switch (inputValue)
 				{
 					case "1":
 					{
-						Ecb();
+						Start(CipherMode.ECB);
 						break;
 					}
 					case "2":
 					{
-						Cbc();
+						Start(CipherMode.CBC);
 						break;
 					}
 					case "3":
 					{
-						Cfb();
+						Start(CipherMode.CFB);
+						break;
+					}
+					case "4":
+					{
+						EcbImplementation();
+						break;
+					}
+					case "5":
+					{
+						CbcImplementation();
 						break;
 					}
 					default:
@@ -37,42 +47,46 @@ namespace blokowe
 			}
 		}
 
-		private static void Ecb()
+		private static void Start(CipherMode cipherMode)
 		{
-			var ecb = new BlockCipher(CipherMode.ECB);
+			var block = new BlockCipher(cipherMode);
 			Console.WriteLine("input value to encrypt:");
 			var input = Console.ReadLine();
 			Console.WriteLine($"input value: {input}, {input.Length}");
-			var encryptedMessage = ecb.EncryptString(key, input);
+			var encryptedMessage = block.EncryptString(input);
 			Console.WriteLine($"encrypted message: {encryptedMessage}, {encryptedMessage.Length}");
-			var decryptedMessage = ecb.DecryptString(key, encryptedMessage);
+			var decryptedMessage = block.DecryptString(encryptedMessage);
 			Console.WriteLine($"decrypted message: {decryptedMessage}, {decryptedMessage.Length}");
 		}
 
-		private static void Cbc()
+		private static void EcbImplementation()
 		{
-			var cbc = new BlockCipher(CipherMode.CBC);
 			Console.WriteLine("input value to encrypt:");
 			var input = Console.ReadLine();
-			Console.WriteLine($"input value: {input}, {input.Length}");
-			var encryptedMessage = cbc.EncryptString(key, input);
-			Console.WriteLine($"encrypted message: {encryptedMessage}, {encryptedMessage.Length}");
-			var decryptedMessage = cbc.DecryptString(key, encryptedMessage);
-			Console.WriteLine($"decrypted message: {decryptedMessage}, {decryptedMessage.Length}");
+			if (string.IsNullOrEmpty(input))
+			{
+				Console.WriteLine("not provided value");
+				return;
+			}
+			var encrypted = BlockCIpherImplementation.EcbEncrypt(input);
+			Console.WriteLine($"decrypted: {encrypted}");
+			var decrypted = BlockCIpherImplementation.EcbEncrypt(encrypted);
+			Console.WriteLine($"decrypted: {decrypted}");
 		}
 
-		private static void Cfb()
+		private static void CbcImplementation()
 		{
-			var cfb = new BlockCipher(CipherMode.CFB);
 			Console.WriteLine("input value to encrypt:");
 			var input = Console.ReadLine();
-			Console.WriteLine($"input value: {input}, {input.Length}");
-			var encryptedMessage = cfb.EncryptString(key, input);
-			Console.WriteLine($"encrypted message: {encryptedMessage}, {encryptedMessage.Length}");
-			var decryptedMessage = cfb.DecryptString(key, encryptedMessage);
-			Console.WriteLine($"decrypted message: {decryptedMessage}, {decryptedMessage.Length}");
+			if (string.IsNullOrEmpty(input))
+			{
+				Console.WriteLine("not provided value");
+				return;
+			}
+			var encrypted = BlockCIpherImplementation.CbcEncrypt(input);
+			Console.WriteLine($"encrypted: {encrypted}");
+			var decrypted = BlockCIpherImplementation.CbcDecrypt(encrypted);
+			Console.WriteLine($"decrypted: {decrypted}");
 		}
-
-		private static string key = "0000000000000000";
 	}
 }

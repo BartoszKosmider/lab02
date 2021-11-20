@@ -11,7 +11,7 @@ public class BlockCipher
 		this.mode = mode;
 	}
 
-	public string EncryptString(string key, string message)
+	public string EncryptString(string message)
 	{
 		var byteKey = Encoding.UTF8.GetBytes(key);
 		var byteMessage = Encoding.UTF8.GetBytes(message);
@@ -19,11 +19,9 @@ public class BlockCipher
 
 		var ecbBlock = new AesManaged()
 		{
-			//KeySize = 128,
 			Key = byteKey,
-			//BlockSize = 128,
+			BlockSize = 128,
 			Mode = mode,
-			//Padding = PaddingMode.Zeros,
 			IV = new byte[16]
 		};
 
@@ -42,7 +40,7 @@ public class BlockCipher
 		return Convert.ToBase64String(array); ;
 	}
 
-	public string DecryptString(string key, string message)
+	public string DecryptString(string message)
 	{
 		var byteKey = Encoding.UTF8.GetBytes(key);
 		var byteMessage = Convert.FromBase64String(message);
@@ -64,5 +62,6 @@ public class BlockCipher
 		return streamReader.ReadToEnd();
 	}
 
+	private static string key = "0000000000000000";
 	private CipherMode mode;
 }
